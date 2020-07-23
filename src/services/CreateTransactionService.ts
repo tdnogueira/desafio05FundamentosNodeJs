@@ -14,7 +14,7 @@ class CreateTransactionService {
   }
 
   public execute({ title, value, type }: Request): Transaction {
-    if (['income', 'outcome'].includes(type)) {
+    if (!['income', 'outcome'].includes(type)) {
       throw new Error('Tipo de transação invalido');
     }
 
